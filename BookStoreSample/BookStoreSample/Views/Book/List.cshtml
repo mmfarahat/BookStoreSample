@@ -1,0 +1,18 @@
+﻿@model BookStoreSample.ViewModels.BooksListViewModel
+<h1>@Model.CategoryTitle</h1>
+<div class="row">
+
+
+    @foreach (var book in Model.Books)
+    {
+        <div style="margin-top:20px"  class="col-sm-4 col-md-4 col-lg-4">
+            <div class="border">
+                <img src="@book.CoverUrl" />
+                <div>
+                    <h5 class="pull-right">@book.Price.ToString("c")</h5>
+                    <h3><a>@book.Title</a></h3>
+                </div>
+            </div>
+        </div>
+    }
+</div>
