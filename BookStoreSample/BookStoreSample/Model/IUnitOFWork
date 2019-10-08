@@ -1,0 +1,5 @@
+  public interface IUnitOFWork :IDisposable
+    {
+        IBookRepository Book { get; }
+        int Complete();
+    }
