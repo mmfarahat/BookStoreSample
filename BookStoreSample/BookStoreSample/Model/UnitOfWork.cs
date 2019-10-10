@@ -25,12 +25,12 @@ namespace BookStoreSample.Model
 
         public int Complete()
         {
-            throw new NotImplementedException();
+           return _appDbContext.SaveChanges();
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _appDbContext.Dispose();
         }
     }
 }
