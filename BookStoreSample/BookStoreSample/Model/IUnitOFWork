@@ -1,5 +1,10 @@
-  public interface IUnitOFWork :IDisposable
+using BookStoreSample.Model;
+using System;
+
+public interface IUnitOFWork :IDisposable
     {
-        IBookRepository Book { get; }
+        IBookRepository Books { get; }
+
+		IcategoryRepository Categories{ get;}
         int Complete();
     }

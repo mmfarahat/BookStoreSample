@@ -12,18 +12,25 @@ namespace BookStoreSample.Controllers
 {
     public class BookController : Controller
     {
-        IBookRepository _bookRepository;
-        IcategoryRepository _categoryRepository;
-        public BookController(IBookRepository bookRepository, IcategoryRepository categoryRepository)
-        {
-            _bookRepository = bookRepository;
-            _categoryRepository = categoryRepository;
-        }
+        //IBookRepository _bookRepository;
+        //IcategoryRepository _categoryRepository;
+        //public BookController(IBookRepository bookRepository, IcategoryRepository categoryRepository)
+        //{
+        //    _bookRepository = bookRepository;
+        //    _categoryRepository = categoryRepository;
+        //}
 
+
+        private IUnitOFWork _unitOfWork;
+            public BookController(IUnitOFWork unitOfWork)
+            {
+                _unitOfWork = unitOfWork;
+            }
         public ViewResult List()
         {
             BooksListViewModel booksListViewModel = new BooksListViewModel();
-            booksListViewModel.Books = _bookRepository.AllBooks;
+           // booksListViewModel.Books = _bookRepository.AllBooks;
+            booksListViewModel.Books = _unitOfWork.Books.AllBooks;
             booksListViewModel.CategoryTitle = "All books";
             return View(booksListViewModel);
         }

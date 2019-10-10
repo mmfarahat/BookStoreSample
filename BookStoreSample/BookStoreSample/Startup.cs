@@ -27,8 +27,9 @@ namespace BookStoreSample
         {
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddScoped<IBookRepository, BookRepository>();
-            services.AddScoped<IcategoryRepository, CategoryRepository>();
+       //services.AddScoped<IBookRepository, BookRepository>();
+            //services.AddScoped<IcategoryRepository, CategoryRepository>();
+            services.AddScoped<IUnitOFWork, UnitOfWork>();
             services.AddControllersWithViews();
 
         }
